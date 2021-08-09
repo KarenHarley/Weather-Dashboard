@@ -14,9 +14,10 @@ console.log(localStorage.getItem("pastSearches"));
 displayLastSearched();
 
 var selectedCity = function (event) {
-  weatherInfoDiv.innerHTML = " "
-  //weatherInfoDiv.textContent = " ";
   event.preventDefault();
+  weatherInfoDiv.innerHTML = "";
+  //weatherInfoDiv.textContent = " ";
+
   console.log("button");
   var search = searchInput.value; //what the user typed
 
