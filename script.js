@@ -8,7 +8,7 @@ var weatherInfoDiv = document.querySelector("#infoDiv");
 var lastSearched = document.querySelector("#last-searched");
 
 arrayOfLastSearches = [];
-localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
+localStorage.setItem("pastSearches", arrayOfLastSearches);
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
 displayLastSearched();
@@ -20,7 +20,6 @@ var selectedCity = function (event) {
   //weatherInfoDiv.innerHTML = "";
   currentCity.textContent = " ";
   weatherForEachDay.textContent = " ";
-  
 
   console.log("button");
   var search = searchInput.value; //what the user typed
@@ -171,7 +170,7 @@ function displayDays(data) {
 }
 
 function displayLastSearched() {
-  var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
+  var pastSearches = localStorage.getItem("pastSearches");
   for (var i = 0; i < pastSearches.length; i++) {
     console.log(pastSearches[i]);
     var lastSearch = document.createElement("button");
