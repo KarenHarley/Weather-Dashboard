@@ -22,3 +22,53 @@ header {
   color: white;
   padding: 10px;
 }
+form {
+  padding: 20px;
+}
+#search-btn {
+  padding: 5px 10px;
+  width: 100%;
+  background-color: rgb(54, 29, 227);
+  color: white;
+  font-size: 20px;
+}
+#btn-div{
+    padding-bottom: 20px;
+    border-bottom: solid;
+}
+#search-input {
+  padding: 6px;
+  margin-bottom: 20px;
+}
+#search-header {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.last-searches {
+  padding: 5px 10px;
+  width: 100%;
+  background-color: rgb(174, 172, 172);
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.uviYellow{
+    background-color: yellow;
+    /*color: yellow;*/
+}
+.uviGreen{
+    background-color: greenyellow;
+    /*color: greenyellow;*/
+}
+.uviOrange{
+    background-color: orange;
+    /*color: orange*/
+}
+.uviRed{
+    background-color: red;
+    /*color: red;*/
+}
+.uviViolet{
+    background-color: violet;
+    /*color:violet;*/
+}

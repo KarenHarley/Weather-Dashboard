@@ -5,9 +5,18 @@ var searchInput = document.getElementById("search-input");
 var currentCity = document.querySelector("#current-city");
 var weatherForEachDay = document.querySelector("#days");
 var weatherInfoDiv = document.querySelector("#infoDiv");
+var lastSearched = document.querySelector("#last-searched")
+
+
+arrayOfLastSearches = [];
+ localStorage.setItem("pastSearches",arrayOfLastSearches)
+console.log(arrayOfLastSearches)
+console.log(localStorage.getItem("pastSearches"))
+displayLastSearched();
 
 var selectedCity = function (event) {
-  event.preventDefault(); //for now
+    //weatherInfoDiv.innerHTML = ""
+  event.preventDefault();
   console.log("button");
   var search = searchInput.value; //what the user typed
 
@@ -73,9 +82,17 @@ function getWeatherForCity(city) {
 }
 function displayCurrentCity(data) {
   var cityName = document.createElement("h2");
-  cityName.textContent = data.name;
+    cityName.textContent = data.name ;
 
-  currentCity.appendChild(cityName); //add date too
+  var iconCode = data.weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var icon = document.createElement("img");
+    icon.setAttribute("src", iconUrl);
+
+ arrayOfLastSearches.push(data.name)//trying to push
+
+  currentCity.appendChild(cityName); //add date too and icon
+  cityName.appendChild(icon)
 }
 
 function displayCurrentWeather(data) {
@@ -88,13 +105,35 @@ function displayCurrentWeather(data) {
   var humidity = document.createElement("p");
   humidity.textContent = "Humidity: " + data.current.humidity + "%"; // do we need main
 
+  var uvi = data.current.uvi
   var uvIndex = document.createElement("p");
-  uvIndex.textContent = "UV Index: " + data.current.uvi; // do we need main
+  uvIndex.textContent = "UV Index: "; // do we need main
+
+  var uviBox = document.createElement("span")
+  uviBox.textContent = uvi
+  
+  if (uvi > 0 && uvi <= 2){
+      console.log("green")
+      uviBox.classList ="uviGreen"
+  }else if (uvi >= 3 && uvi <= 5){
+    console.log("yellow")
+    uviBox.classList("uviYellow")
+}else if (uvi >= 6 && uvi <= 7){
+    console.log("orange")
+    uviBox.classList ="uviOrange"
+}else if (uvi >= 8 && uvi <= 10){
+    console.log("red")
+    uviBox.classList ="uviRed"
+}else if (uvi >11){
+    console.log("violet")
+    uviBox.classList ="uviViolet"
+}
 
   currentCity.appendChild(temp);
   currentCity.appendChild(wind);
   currentCity.appendChild(humidity);
   currentCity.appendChild(uvIndex);
+  uvIndex.appendChild(uviBox)
 }
 function displayDays(data) {
   for (let i = 0; i < 5; i++) {
@@ -106,7 +145,7 @@ function displayDays(data) {
     icon.setAttribute("src", iconUrl);
 
     var dayDiv = document.createElement("div");
-    dayDiv.classList = "dayDivs col-12 col-md-2 col-lg-3";
+    dayDiv.classList = "dayDivs col-sm"; //col-12 col-md-2 col-lg-3
     var temp = document.createElement("p");
     temp.textContent = "Temp: " + data.daily[i].temp.day + " *F";
 
@@ -123,22 +162,35 @@ function displayDays(data) {
     dayDiv.appendChild(humidity);
   }
 }
-//needs current city so  .name
-// temp is main.temp
-//wind wind.speed
-//main/humidity
-//weather.description and put icons depending
 
-/*
-<h2 id = "city">CURRENT CITY AND DAY</h2>
+function displayLastSearched(){
+  
+    for (var i = 0; i < arrayOfLastSearches.length; i++) {
+        var lastSearch = document.createElement("button");
+        lastSearch.textContent = array[i];
+        lastSearch.classList = "btn last-searches"
+    
+        lastSearched.appendChild(lastSearch)
 
-                <p id = "temp">Temp:</p>
-                <p id = "wind">Wind:</p>
-                <p id = "humidity">Humidity:</p>
-                <p id = "uv-index">UV Index:</p>
+    }
+    
 
-*/
+}
 
 //things to do
 //clear div if type a new one
-//weatherInfoDiv.innerHTML = "HI ";
+//weatherInfoDiv.innerHTML = "";
+//uv index
+//last seraches
+//date
+//icon next to date
+
+
+/*
+  <button class = " btn last-searches">New York</button>
+                  <button class = "last-searches"></button>
+                  <button class = "last-searches"></button>
+                  <button class = "last-searches"></button>
+                  <button class = "last-searches"></button>
+                  <button class = "last-searches"></button>
+*/
