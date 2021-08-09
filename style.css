@@ -1,3 +1,6 @@
+main{
+  /* width: 75%; /*i dont know why this works*/
+}
 header {
   display: flex;
   justify-content: center;
@@ -71,4 +74,8 @@ form {
 .uviViolet{
     background-color: violet;
     /*color:violet;*/
+}
+span{
+    font-size: 10px;
+    padding: 10px;
 }

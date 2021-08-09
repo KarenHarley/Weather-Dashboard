@@ -20,7 +20,7 @@ var selectedCity = function (event) {
   //weatherInfoDiv.innerHTML = "";
   currentCity.textContent = " ";
   weatherForEachDay.textContent = " ";
-  //searchInput.value = " ";
+  
 
   console.log("button");
   var search = searchInput.value; //what the user typed
@@ -28,6 +28,7 @@ var selectedCity = function (event) {
   if (search) {
     console.log("search input: " + search);
     localStorage.setItem("search", search); //set search input in local storage
+    searchInput.value = " ";
     getWeatherForCity(search);
   } else {
     console.log("nothing typed in");
