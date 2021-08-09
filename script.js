@@ -8,15 +8,19 @@ var weatherInfoDiv = document.querySelector("#infoDiv");
 var lastSearched = document.querySelector("#last-searched");
 
 arrayOfLastSearches = [];
-localStorage.setItem("pastSearches", arrayOfLastSearches);
+localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
 displayLastSearched();
 
 var selectedCity = function (event) {
   event.preventDefault();
-  weatherInfoDiv.innerHTML = "";
-  //weatherInfoDiv.textContent = " ";
+  displayLastSearched();
+
+  //weatherInfoDiv.innerHTML = "";
+  currentCity.textContent = " ";
+  weatherForEachDay.textContent = " ";
+  //searchInput.value = " ";
 
   console.log("button");
   var search = searchInput.value; //what the user typed
@@ -118,7 +122,7 @@ function displayCurrentWeather(data) {
     uviBox.classList = "uviGreen";
   } else if (uvi >= 3 && uvi <= 5) {
     console.log("yellow");
-    uviBox.classList("uviYellow");
+    uviBox.classList = "uviYellow";
   } else if (uvi >= 6 && uvi <= 7) {
     console.log("orange");
     uviBox.classList = "uviOrange";
@@ -161,13 +165,16 @@ function displayDays(data) {
     dayDiv.appendChild(temp);
     dayDiv.appendChild(wind);
     dayDiv.appendChild(humidity);
+    console.log(arrayOfLastSearches);
   }
 }
 
 function displayLastSearched() {
-  for (var i = 0; i < arrayOfLastSearches.length; i++) {
+  var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
+  for (var i = 0; i < pastSearches.length; i++) {
+    console.log(pastSearches[i]);
     var lastSearch = document.createElement("button");
-    lastSearch.textContent = array[i];
+    lastSearch.textContent = pastSearches[i];
     lastSearch.classList = "btn last-searches";
 
     lastSearched.appendChild(lastSearch);
