@@ -99,14 +99,14 @@ function displayCurrentWeather(data) {
 function displayDays(data) {
   for (let i = 0; i < 5; i++) {
     console.log(data.daily[i]);
-    
-    var iconCode = data.daily[i].weather[0].icon 
-    var iconUrl = "http://openweathermap.org/img/w/"+iconCode+".png"
-    var icon = document.createElement("img")
-    icon.setAttribute("src",iconUrl)
+
+    var iconCode = data.daily[i].weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var icon = document.createElement("img");
+    icon.setAttribute("src", iconUrl);
 
     var dayDiv = document.createElement("div");
-    dayDiv.classList = "dayDivs col-12 col-md-3";
+    dayDiv.classList = "dayDivs col-12 col-md-2 col-lg-3";
     var temp = document.createElement("p");
     temp.textContent = "Temp: " + data.daily[i].temp.day + " *F";
 
@@ -117,7 +117,7 @@ function displayDays(data) {
     humidity.textContent = "Humidity: " + data.daily[i].humidity + "%";
 
     weatherForEachDay.appendChild(dayDiv);
-    dayDiv.appendChild(icon)
+    dayDiv.appendChild(icon);
     dayDiv.appendChild(temp);
     dayDiv.appendChild(wind);
     dayDiv.appendChild(humidity);
@@ -139,7 +139,6 @@ function displayDays(data) {
 
 */
 
-
-//things to do 
-//clear div if type a new one 
+//things to do
+//clear div if type a new one
 //weatherInfoDiv.innerHTML = "HI ";
