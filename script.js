@@ -6,12 +6,11 @@ var currentCity = document.querySelector("#current-city");
 var weatherForEachDay = document.querySelector("#days");
 var weatherInfoDiv = document.querySelector("#infoDiv");
 var lastSearched = document.querySelector("#last-searched");
-var btnLastSearches = document.querySelectorAll(".last-searches");
+var btnLastSearches = document.getElementsByClassName("last-searches");
 
-var arrayOfLastSearches = [] || localStorage.getItem("pastSearches");
-//var arrayOfLastSearches = []
-//arrayOfLastSearches =localStorage.getItem("pastSearches")
-var arrayOfLastSearches = JSON.parse(localStorage.getItem("pastSearches")) || []
+//var arrayOfLastSearches = [] || localStorage.getItem("pastSearches");
+var arrayOfLastSearches =
+  JSON.parse(localStorage.getItem("pastSearches")) || [];
 
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
@@ -177,6 +176,7 @@ function displayLastSearched() {
   var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
 
   if (pastSearches != null) {
+    lastSearched.innerHTML = "";
     for (var i = 0; i < pastSearches.length; i++) {
       console.log(pastSearches[i]);
       var lastSearch = document.createElement("button");
@@ -188,19 +188,18 @@ function displayLastSearched() {
   }
 }
 
-//things to do
-//clear div if type a new one
-//weatherInfoDiv.innerHTML = "";
-//uv index
-//last seraches
-//date
-//icon next to date
+document.querySelectorAll(".last-searches").forEach((item) => {
+  item.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("Hello World!");
+    
+    var value = event.target.textContent
+    console.log(event.target.textContent)
+    getWeatherForCity(value);
+    currentCity.textContent = " ";
+    weatherForEachDay.textContent = " ";
+  });
+});
 
-/*
-  <button class = " btn last-searches">New York</button>
-                  <button class = "last-searches"></button>
-                  <button class = "last-searches"></button>
-                  <button class = "last-searches"></button>
-                  <button class = "last-searches"></button>
-                  <button class = "last-searches"></button>
-*/
+//things to do
+//get the date
