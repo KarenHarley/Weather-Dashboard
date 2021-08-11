@@ -6,9 +6,10 @@ var currentCity = document.querySelector("#current-city");
 var weatherForEachDay = document.querySelector("#days");
 var weatherInfoDiv = document.querySelector("#infoDiv");
 var lastSearched = document.querySelector("#last-searched");
+var btnLastSearches = document.querySelectorAll(".last-searches")
 
 arrayOfLastSearches = [];
-localStorage.setItem("pastSearches", arrayOfLastSearches);
+
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
 displayLastSearched();
@@ -95,7 +96,7 @@ function displayCurrentCity(data) {
   icon.setAttribute("src", iconUrl);
 
   arrayOfLastSearches.push(data.name); //trying to push
-
+  localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
   currentCity.appendChild(cityName); //add date too and icon
   cityName.appendChild(icon);
 }
@@ -170,7 +171,11 @@ function displayDays(data) {
 }
 
 function displayLastSearched() {
-  var pastSearches = localStorage.getItem("pastSearches");
+    var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
+
+    if (pastSearches != null){
+
+    
   for (var i = 0; i < pastSearches.length; i++) {
     console.log(pastSearches[i]);
     var lastSearch = document.createElement("button");
@@ -180,6 +185,8 @@ function displayLastSearched() {
     lastSearched.appendChild(lastSearch);
   }
 }
+}
+
 
 //things to do
 //clear div if type a new one
