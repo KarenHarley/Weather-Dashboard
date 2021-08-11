@@ -6,9 +6,12 @@ var currentCity = document.querySelector("#current-city");
 var weatherForEachDay = document.querySelector("#days");
 var weatherInfoDiv = document.querySelector("#infoDiv");
 var lastSearched = document.querySelector("#last-searched");
-var btnLastSearches = document.querySelectorAll(".last-searches")
+var btnLastSearches = document.querySelectorAll(".last-searches");
 
-arrayOfLastSearches = [];
+var arrayOfLastSearches = [] || localStorage.getItem("pastSearches");
+//var arrayOfLastSearches = []
+//arrayOfLastSearches =localStorage.getItem("pastSearches")
+var arrayOfLastSearches = JSON.parse(localStorage.getItem("pastSearches")) || []
 
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
@@ -171,22 +174,19 @@ function displayDays(data) {
 }
 
 function displayLastSearched() {
-    var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
+  var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
 
-    if (pastSearches != null){
+  if (pastSearches != null) {
+    for (var i = 0; i < pastSearches.length; i++) {
+      console.log(pastSearches[i]);
+      var lastSearch = document.createElement("button");
+      lastSearch.textContent = pastSearches[i];
+      lastSearch.classList = "btn last-searches";
 
-    
-  for (var i = 0; i < pastSearches.length; i++) {
-    console.log(pastSearches[i]);
-    var lastSearch = document.createElement("button");
-    lastSearch.textContent = pastSearches[i];
-    lastSearch.classList = "btn last-searches";
-
-    lastSearched.appendChild(lastSearch);
+      lastSearched.appendChild(lastSearch);
+    }
   }
 }
-}
-
 
 //things to do
 //clear div if type a new one
