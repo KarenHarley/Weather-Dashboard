@@ -206,3 +206,23 @@ document.querySelectorAll(".last-searches").forEach((item) => {
 
 //things to do
 //get the date
+/*
+ var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
+  var uniqueSearches = [...new Set(pastSearches)];
+  uniqueSearches.length = 8;
+  if (pastSearches != null) {
+    lastSearched.innerHTML = "";
+    for (var i = 0; i < uniqueSearches.length; i++) {
+      console.log(uniqueSearches[i]);
+      var lastSearch = document.createElement("button");
+      lastSearch.textContent = uniqueSearches[i];
+      lastSearch.classList = "btn last-searches";
+
+      lastSearched.appendChild(lastSearch);
+    }
+  }
+*/
+
+/*
+
+*/
