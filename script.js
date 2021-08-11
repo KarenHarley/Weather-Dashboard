@@ -1,5 +1,3 @@
-console.log("Hello");
-
 var searchBtn = document.querySelector("#search-btn");
 var searchInput = document.getElementById("search-input");
 var currentCity = document.querySelector("#current-city");
@@ -12,18 +10,16 @@ var btnLastSearches = document.getElementsByClassName("last-searches");
 var arrayOfLastSearches =
   JSON.parse(localStorage.getItem("pastSearches")) || [];
 //var array = JSON.parse(localStorage.getItem('pastSearches')) || localStorage.setItem("pastSearches",JSON.stringify([]))
-var array =
-  JSON.parse(localStorage.getItem("lastSearch")) ||
-  localStorage.setItem("lastSearch", JSON.stringify([]));
+//var array =
+// JSON.parse(localStorage.getItem("lastSearch")) ||
+// localStorage.setItem("lastSearch", JSON.stringify([]));
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
 displayLastSearched();
 
 var selectedCity = function (event) {
   event.preventDefault();
-  displayLastSearched();
 
-  //weatherInfoDiv.innerHTML = "";
   currentCity.textContent = " ";
   weatherForEachDay.textContent = " ";
 
@@ -35,6 +31,7 @@ var selectedCity = function (event) {
     localStorage.setItem("search", search); //set search input in local storage
     searchInput.value = " ";
     getWeatherForCity(search);
+    displayLastSearched();
   } else {
     console.log("nothing typed in");
     return;
@@ -100,8 +97,21 @@ function displayCurrentCity(data) {
   var icon = document.createElement("img");
   icon.setAttribute("src", iconUrl);
 
-  arrayOfLastSearches.push(data.name); //trying to push
+  if (arrayOfLastSearches.includes(data.name)) {
+    return;
+  } else {
+    arrayOfLastSearches.push(data.name); //trying to push
+  }
+
   localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
+
+  arrayOfLastSearches = JSON.parse(localStorage.getItem("pastSearches"));
+  if (arrayOfLastSearches.length > 8) {
+    arrayOfLastSearches.shift();
+  }
+
+  //arrayOfLastSearches.push(data.name); //trying to push
+  // localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
   currentCity.appendChild(cityName); //add date too and icon
   cityName.appendChild(icon);
 }
@@ -176,9 +186,12 @@ function displayDays(data) {
 }
 
 function displayLastSearched() {
-  var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
-  //pastSearches.length = 8;
-  if (pastSearches != null) {
+  var pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
+  console.log(pastSearches);
+  console.log(pastSearches.length);
+  console.log("cliked");
+  if (pastSearches.length !== 0) {
+    //>
     lastSearched.innerHTML = "";
     for (var i = 0; i < pastSearches.length; i++) {
       console.log(pastSearches[i]);
@@ -206,23 +219,20 @@ document.querySelectorAll(".last-searches").forEach((item) => {
 
 //things to do
 //get the date
-/*
- var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
-  var uniqueSearches = [...new Set(pastSearches)];
-  uniqueSearches.length = 8;
-  if (pastSearches != null) {
-    lastSearched.innerHTML = "";
-    for (var i = 0; i < uniqueSearches.length; i++) {
-      console.log(uniqueSearches[i]);
-      var lastSearch = document.createElement("button");
-      lastSearch.textContent = uniqueSearches[i];
-      lastSearch.classList = "btn last-searches";
-
-      lastSearched.appendChild(lastSearch);
-    }
-  }
-*/
 
 /*
+function displayCurrentCity(data) {
+  var cityName = document.createElement("h2");
+  cityName.textContent = data.name;
 
+  var iconCode = data.weather[0].icon;
+  var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+  var icon = document.createElement("img");
+  icon.setAttribute("src", iconUrl);
+
+  arrayOfLastSearches.push(data.name); //trying to push
+  localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
+  currentCity.appendChild(cityName); //add date too and icon
+  cityName.appendChild(icon);
+}
 */
