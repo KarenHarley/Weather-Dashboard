@@ -9,8 +9,12 @@ var lastSearched = document.querySelector("#last-searched");
 var btnLastSearches = document.getElementsByClassName("last-searches");
 
 //var arrayOfLastSearches = [] || localStorage.getItem("pastSearches");
-var arrayOfLastSearches = JSON.parse(localStorage.getItem("pastSearches")) || []
-
+var arrayOfLastSearches =
+  JSON.parse(localStorage.getItem("pastSearches")) || [];
+//var array = JSON.parse(localStorage.getItem('pastSearches')) || localStorage.setItem("pastSearches",JSON.stringify([]))
+var array =
+  JSON.parse(localStorage.getItem("lastSearch")) ||
+  localStorage.setItem("lastSearch", JSON.stringify([]));
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
 displayLastSearched();
