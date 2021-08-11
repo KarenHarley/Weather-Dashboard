@@ -9,8 +9,7 @@ var lastSearched = document.querySelector("#last-searched");
 var btnLastSearches = document.getElementsByClassName("last-searches");
 
 //var arrayOfLastSearches = [] || localStorage.getItem("pastSearches");
-var arrayOfLastSearches =
-  JSON.parse(localStorage.getItem("pastSearches")) || [];
+var arrayOfLastSearches = JSON.parse(localStorage.getItem("pastSearches")) || []
 
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
@@ -174,7 +173,7 @@ function displayDays(data) {
 
 function displayLastSearched() {
   var pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
-
+  //pastSearches.length = 8;
   if (pastSearches != null) {
     lastSearched.innerHTML = "";
     for (var i = 0; i < pastSearches.length; i++) {
@@ -192,9 +191,9 @@ document.querySelectorAll(".last-searches").forEach((item) => {
   item.addEventListener("click", function (event) {
     event.preventDefault();
     console.log("Hello World!");
-    
-    var value = event.target.textContent
-    console.log(event.target.textContent)
+
+    var value = event.target.textContent;
+    console.log(event.target.textContent);
     getWeatherForCity(value);
     currentCity.textContent = " ";
     weatherForEachDay.textContent = " ";
