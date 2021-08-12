@@ -199,13 +199,9 @@ function displayLastSearched() {
 
       lastSearched.appendChild(lastSearch);
     }
-  }
-}
-
-document.querySelectorAll(".last-searches").forEach((item) => {
+    document.querySelectorAll(".last-searches").forEach((item) => {
   item.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log("Hello World!");
 
     var value = event.target.textContent;
     console.log(event.target.textContent);
@@ -214,5 +210,8 @@ document.querySelectorAll(".last-searches").forEach((item) => {
     weatherForEachDay.textContent = " ";
   });
 });
+  }
+}
+
 
 searchBtn.addEventListener("click", selectedCity);
