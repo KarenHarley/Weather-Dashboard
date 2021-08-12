@@ -10,11 +10,21 @@ header {
     rgba(49, 13, 134, 1) 62%
   );
 }
-.currentCity {
+h2{
+    
+    display: inline-block;
+}
+.container {
+  max-width: 100%;
+}
+#infoDiv{
+    padding: 40px;
+}
+#current-city {
   /*want to add these later */
-  border: solid;
   padding: 10px;
   margin-top: 10px;
+  /*border:solid*/
 }
 .dayDivs {
   border: solid;

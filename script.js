@@ -5,14 +5,10 @@ var weatherForEachDay = document.querySelector("#days");
 var weatherInfoDiv = document.querySelector("#infoDiv");
 var lastSearched = document.querySelector("#last-searched");
 var btnLastSearches = document.getElementsByClassName("last-searches");
+var daysheading = document.querySelector("#daysHeading");
 
-//var arrayOfLastSearches = [] || localStorage.getItem("pastSearches");
 var arrayOfLastSearches =
   JSON.parse(localStorage.getItem("pastSearches")) || [];
-//var array = JSON.parse(localStorage.getItem('pastSearches')) || localStorage.setItem("pastSearches",JSON.stringify([]))
-//var array =
-// JSON.parse(localStorage.getItem("lastSearch")) ||
-// localStorage.setItem("lastSearch", JSON.stringify([]));
 console.log(arrayOfLastSearches);
 console.log(localStorage.getItem("pastSearches"));
 displayLastSearched();
@@ -28,17 +24,15 @@ var selectedCity = function (event) {
 
   if (search) {
     console.log("search input: " + search);
-    localStorage.setItem("search", search); //set search input in local storage
+    localStorage.setItem("search", search); 
     searchInput.value = " ";
     getWeatherForCity(search);
-    displayLastSearched();
+
   } else {
     console.log("nothing typed in");
     return;
   }
 };
-
-searchBtn.addEventListener("click", selectedCity);
 
 function getWeatherForCity(city) {
   console.log("get weather for city");
@@ -81,21 +75,28 @@ function getWeatherForCity(city) {
               displayDays(data);
             });
           }
+          displayLastSearched();
         });
       });
     } else {
-      console.log("not ok");
+      console.log("not ok"); 
+      alert("Error..Try Again")
     }
   });
 }
 function displayCurrentCity(data) {
   var cityName = document.createElement("h2");
-  cityName.textContent = data.name;
-
+  cityName.textContent = data.name + " ";
+  var date = document.createElement("h2");
+  date.textContent = moment.unix(data.dt).format("MM/DD/YYYY"); //unix
   var iconCode = data.weather[0].icon;
   var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
   var icon = document.createElement("img");
   icon.setAttribute("src", iconUrl);
+
+  currentCity.appendChild(cityName); 
+  cityName.appendChild(date);
+  cityName.appendChild(icon);
 
   if (arrayOfLastSearches.includes(data.name)) {
     return;
@@ -109,26 +110,21 @@ function displayCurrentCity(data) {
   if (arrayOfLastSearches.length > 8) {
     arrayOfLastSearches.shift();
   }
-
-  //arrayOfLastSearches.push(data.name); //trying to push
-  // localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
-  currentCity.appendChild(cityName); //add date too and icon
-  cityName.appendChild(icon);
 }
 
 function displayCurrentWeather(data) {
   var temp = document.createElement("p");
-  temp.textContent = "Temp: " + data.current.temp + " *F"; // do we need main is it ferenhight
+  temp.textContent = "Temp: " + data.current.temp + " *F"; 
 
   var wind = document.createElement("p");
-  wind.textContent = "Wind: " + data.current.wind_speed + " MPH"; // do we need main is it mph?
+  wind.textContent = "Wind: " + data.current.wind_speed + " MPH"; 
 
   var humidity = document.createElement("p");
-  humidity.textContent = "Humidity: " + data.current.humidity + "%"; // do we need main
+  humidity.textContent = "Humidity: " + data.current.humidity + "%";
 
   var uvi = data.current.uvi;
   var uvIndex = document.createElement("p");
-  uvIndex.textContent = "UV Index: "; // do we need main
+  uvIndex.textContent = "UV Index: "; 
 
   var uviBox = document.createElement("span");
   uviBox.textContent = uvi;
@@ -157,6 +153,8 @@ function displayCurrentWeather(data) {
   uvIndex.appendChild(uviBox);
 }
 function displayDays(data) {
+  daysheading.textContent = "5-Day Forecast:";
+
   for (let i = 0; i < 5; i++) {
     console.log(data.daily[i]);
 
@@ -166,12 +164,12 @@ function displayDays(data) {
     icon.setAttribute("src", iconUrl);
 
     var dayDiv = document.createElement("div");
-    dayDiv.classList = "dayDivs col-sm"; //col-12 col-md-2 col-lg-3
+    dayDiv.classList = "dayDivs col-sm"; 
     var temp = document.createElement("p");
     temp.textContent = "Temp: " + data.daily[i].temp.day + " *F";
 
     var wind = document.createElement("p");
-    wind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH"; // do we need main is it mph?
+    wind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH"; 
 
     var humidity = document.createElement("p");
     humidity.textContent = "Humidity: " + data.daily[i].humidity + "%";
@@ -191,7 +189,7 @@ function displayLastSearched() {
   console.log(pastSearches.length);
   console.log("cliked");
   if (pastSearches.length !== 0) {
-    //>
+ 
     lastSearched.innerHTML = "";
     for (var i = 0; i < pastSearches.length; i++) {
       console.log(pastSearches[i]);
@@ -217,22 +215,4 @@ document.querySelectorAll(".last-searches").forEach((item) => {
   });
 });
 
-//things to do
-//get the date
-
-/*
-function displayCurrentCity(data) {
-  var cityName = document.createElement("h2");
-  cityName.textContent = data.name;
-
-  var iconCode = data.weather[0].icon;
-  var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-  var icon = document.createElement("img");
-  icon.setAttribute("src", iconUrl);
-
-  arrayOfLastSearches.push(data.name); //trying to push
-  localStorage.setItem("pastSearches", JSON.stringify(arrayOfLastSearches));
-  currentCity.appendChild(cityName); //add date too and icon
-  cityName.appendChild(icon);
-}
-*/
+searchBtn.addEventListener("click", selectedCity);
