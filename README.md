@@ -5,7 +5,12 @@
 ## Features:
  This weather dashboard allows you to see the weather for the next 5 days. This includes not only the temperature but also the wind speed, humidity and UV index! It even uses icons to better understand and visualize the weather.
  ### Past searches:
- This website stores and displays the past 8 searches. They are displayed below the search button. You can access the weather of these pervious searches by clicking on them.  
+ This website stores and displays the past 8 searches. They are displayed below the search button. You can access the weather of these pervious searches by clicking on them. 
+ 
+<br />
+<div style="text-align:center"><img src="pics/pastSearches.png" /></div>
+  
+ 
 
 
  # Website 
