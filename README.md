@@ -12,6 +12,18 @@
  ![full webpage](./pics/website.png)
 
 
+# Technologies used
+
+1. jQuery
+2. CSS
+3. HTML
+4. Bootstrap
+5. MomentJS
+
+## Contact Info 
+
+KarenHarley88@gmail.com
+ 
  ### Links:
  
 
