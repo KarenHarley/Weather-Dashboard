@@ -9,9 +9,14 @@
  
 <br />
 
-
+<p align="center">
+  <img width="200" src="./pics/pastSearches.png" alt="past searches">
+</p>
  
-  <div align=”center”> [./pics/pastSearches.png]</div>
+ 
+  
+  ![past searches](./pics/pastSearches.png)
+  
 
 
  # Website 
