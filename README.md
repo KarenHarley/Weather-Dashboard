@@ -9,7 +9,7 @@
  
 <br />
 
-<div style="text-align:center"><img src="pics/pastSearches.png" /></div>
+ ![past searches](./pics/pastSearches.png)
   
  
 
