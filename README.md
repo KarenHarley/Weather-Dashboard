@@ -13,10 +13,7 @@
   <img width="200" src="./pics/pastSearches.png" alt="past searches">
 </p>
  
- 
-  
-  ![past searches](./pics/pastSearches.png)
-  
+
 
 
  # Website 
