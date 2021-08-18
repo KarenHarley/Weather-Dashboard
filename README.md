@@ -12,6 +12,7 @@
  ![past searches](./pics/pastSearches.png)
   
  
+  <div align=”center”> [./pics/pastSearches.png]</div>
 
 
  # Website 
