@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-## See the current and future weather conditions for a particular city.
+## See the current and future weather conditions for a particular city with this easy to use app.
 
 ## Features:
  This weather dashboard allows you to see the weather for the next 5 days. This includes not only the temperature but also the wind speed, humidity and UV index! It even uses icons to better understand and visualize the weather.
