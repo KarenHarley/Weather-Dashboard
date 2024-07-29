@@ -8,7 +8,6 @@ This application uses the input entered to see the current and future weather co
 ## Table of Contents
 
 - [Features](#features)
-- [Usage](#usage)
 - [Tecnologies](#tecnologies)
 - [Packages](#packages)
 - [License](#license)
@@ -17,6 +16,14 @@ This application uses the input entered to see the current and future weather co
 
 ## Features:
 This weather dashboard allows you to see the weather for the next 5 days. This includes not only the temperature but also the wind speed, humidity and UV index! It even uses icons to better understand and visualize the weather. It also stores and displays the past 8 searches. They are displayed below the search button. You can access the weather of these pervious searches by clicking on them. 
+
+## Technologies
+
+1. jQuery
+2. CSS
+3. HTML
+4. Bootstrap
+5. MomentJS
  
 <br />
 
@@ -30,14 +37,6 @@ This weather dashboard allows you to see the weather for the next 5 days. This i
  # Weather dashboard page
  ![full webpage](./pics/website.png)
 
-
-# Technologies used
-
-1. jQuery
-2. CSS
-3. HTML
-4. Bootstrap
-5. MomentJS
 
 ## Contact Info 
 
