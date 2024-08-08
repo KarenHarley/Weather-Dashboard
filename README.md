@@ -10,7 +10,6 @@ This application uses the input entered to see the current and future weather co
 - [Features](#features)
 - [Tecnologies](#tecnologies)
 - [License](#license)
-- [How to Contribute](#contribute)
 - [Questions](#questions)
 
 ## Features:
