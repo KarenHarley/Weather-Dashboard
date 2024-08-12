@@ -37,11 +37,11 @@ This weather dashboard allows you to see the weather for the next 5 days. This i
 
 KarenHarley88@gmail.com
 
- ## License
+## License
 
 The license used for this project: MIT
  
-### Links:
+## Links:
  
 
 #### Github
