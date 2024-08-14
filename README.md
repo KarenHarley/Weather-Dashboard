@@ -9,6 +9,7 @@ This application uses the input entered to see the current and future weather co
 
 - [Features](#features)
 - [Tecnologies](#tecnologies)
+- [Picture](#weather-dashboard-page)
 - [Contact Info](#contact-info)
 - [License](#license)
 - [Llinks](#links)
@@ -30,7 +31,7 @@ This weather dashboard allows you to see the weather for the next 5 days. This i
   <img width="200" src="./pics/pastSearches.png" alt="past searches">
 </p>
 
- # Weather dashboard page
+ ## Weather dashboard page
  ![full webpage](./pics/website.png)
 
 
