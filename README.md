@@ -9,7 +9,7 @@ This application uses the input entered to see the current and future weather co
 
 - [Features](#features)
 - [Tecnologies](#tecnologies)
-- [Picture](#weather-dashboard-page)
+- [Website Picture](#weather-dashboard-page)
 - [Contact Info](#contact-info)
 - [License](#license)
 - [Llinks](#links)
