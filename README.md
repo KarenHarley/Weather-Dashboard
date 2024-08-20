@@ -25,13 +25,13 @@ This application uses the input entered to see the current and future weather co
  
 <br />
 
-<p align="center">
-  <img width="200" src="./pics/pastSearches.png" alt="past searches">
-</p>
-
  ## Weather dashboard page
  ![full webpage](./pics/website.png)
 
+
+<p align="center">
+  <img width="200" src="./pics/pastSearches.png" alt="past searches">
+</p>
 
 ## Contact Info 
 
