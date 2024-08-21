@@ -28,7 +28,7 @@ This application uses the input entered to see the current and future weather co
  ## Weather dashboard page
  ![full webpage](./pics/website.png)
 
-
+## Past Searches display
 <p align="center">
   <img width="200" src="./pics/pastSearches.png" alt="past searches">
 </p>
