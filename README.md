@@ -12,7 +12,8 @@
 - [Llinks](#links)
 
 ## Features:
-This application uses the input entered to see the current and future weather conditions for a particular city. The weather dashboard allows you to see the weather for the next 5 days. This includes not only the temperature but also the wind speed, humidity and UV index! It even uses icons to better understand and visualize the weather. It also stores and displays the past 8 searches. They are displayed below the search button. You can access the weather of these pervious searches by clicking on them. 
+
+This application utilizes user input to provide both current and future weather conditions for a specified city. The weather dashboard displays a five-day forecast, including temperature, wind speed, humidity, and UV index, accompanied by icons for enhanced visualization and clarity. Additionally, the application stores and presents the eight most recent searches, which are conveniently listed below the search bar. Users can quickly access the weather information for these previous searches by simply clicking on them.
 
  ## Tecnologies 
 
