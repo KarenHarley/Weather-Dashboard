@@ -47,8 +47,8 @@ The license used for this project: MIT
 
 #### Github
 
-https://github.com/KarenHarley/Weather-Dashboard
+`https://github.com/KarenHarley/Weather-Dashboard`
 
 #### Website
 
-https://karenharley.github.io/Weather-Dashboard
+`https://karenharley.github.io/Weather-Dashboard`
